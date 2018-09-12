@@ -10,7 +10,8 @@ class WatchDog(object):
     def __init__(self):
         pass
 
-    def reboot(self):
+    @staticmethod
+    def reboot():
         os.popen("/sbin/shutdown -r now")
 
     def monitor(self):
@@ -24,7 +25,7 @@ class WatchDog(object):
             threshold = int(total) / 4
         if int(free) < int(threshold):
             print("restarting now")
-            self.reboot()
+            reboot()
 
 class WatchDogThread(WatchDog):
     def __init__(self, seconds=1):
