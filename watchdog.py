@@ -11,7 +11,7 @@ class WatchDog(object):
         self.divisor = divisor
 
     def reboot(self):
-        os.popen("/sbin/shutdown -r now")
+        os.popen("/usr/bin/sudo /sbin/shutdown -r now")
 
     def monitor(self,trigger='mem'):
         item_dict = {}
